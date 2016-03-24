@@ -23,15 +23,16 @@ InventoryUtil.Add1D = function(inventory, inp)
 	return inventory
 end
 
-InventoryUtil.Fill1D = function(inventory, contents, typ)
-	if(contents)then
+InventoryUtil.Fill1D = function(inventory, contents)
+	if(not contents.Id)then
 		inventory.Contents = contents
 		return
 	end
 	inventory.Contents = {}
 	for x=1, inventory.LengthX do
-		inventory.Contents[x] = CloneItem(typ)
+		inventory.Contents[x] = CloneItem(contents)
 	end
+	inventory.Size = #inventory.Contents
 end
 
 InventoryUtil.Fill2D = function(inventory, contents)
