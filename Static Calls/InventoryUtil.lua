@@ -33,6 +33,15 @@ InventoryUtil.Add2D = function(inventory, x, y, inp)
 	return inventory
 end
 
+-- TODO: Figure out how to handle return nil
+InventoryUtil.Remove1D = function(inventory, index)
+	if(index > inventory.Length or index > inventory.Size)then
+		return nil
+	end
+	inventory.Length = inventory.Length - 1
+	return table.remove(inventory.Contents, index)
+end
+
 InventoryUtil.Fill1D = function(inventory, contents)
 	if(not contents.Id)then
 		inventory.Contents = contents
