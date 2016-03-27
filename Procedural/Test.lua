@@ -11,10 +11,11 @@ local item = ItemFactory.instance()
 	:withMetadata()
 	:finalize(2)
 
--- Creating a single 2D inventory
-local invy = InventoryFactory.instance()
+-- Creating a single 2D inventory and capturing then debugging the instance
+local invy_p = InventoryFactory.instance()
 	:as2D(10, 10)
-	:finalize()
+local invy = invy_p:finalize()
+InventoryDebug.DebugInstance(invy_p)
 
 -- Fill 2D inventory with default previously created new item
 invy:Fill(nil, item)

@@ -32,4 +32,12 @@ InventoryDebug.DebugItem = function(invy, x, y)
 	print("end item debugging")
 end
 
+InventoryDebug.DebugInstance = function(instance)
+	print("start instance debugging")
+	for i, v in pairs(instance)do
+		print(i, type(v), v)
+	end
+	print("end instance debugging")
+end
+
 return InventoryDebug
