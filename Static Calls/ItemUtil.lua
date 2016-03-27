@@ -4,11 +4,7 @@ local ItemUtil = {}
 ItemUtil.Clone = function(item)
 	local out = {}
 	for i, v in pairs(item)do
-		if(type(v) == "table")then
-			out[i] = {}
-		else
-			out[i] = v
-		end
+		out[i] = type(v) == "table" and {} or v
 	end
 	return out
 end
