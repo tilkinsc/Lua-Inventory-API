@@ -15,11 +15,21 @@ end
 
 local InventoryUtil = {}
 
+-- TODO: Figure out how to handle return nil
 InventoryUtil.Add1D = function(inventory, inp)
-	if(#inventory.Length+1 > Size)then
+	if(inventory.Size < inventory.Length+1)then
 		return nil
 	end
+	inventory.Length = inventory.Length + 1
 	table.insert(inventory.Contents, inp)
+	return inventory
+end
+
+InventoryUtil.Add2D = function(inventory, x, y, inp)
+	if(x => inventory.LengthX+1)then
+		return nil
+	end
+	inventory.Contents[x][y] = inp
 	return inventory
 end
 
