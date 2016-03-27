@@ -13,7 +13,7 @@ local item = ItemFactory.instance()
 	:withMetadata()
 	:finalize(2)
 
--- Creating a single 2D inventory
+-- Creating a single 2D inventory and capturing then debugging the instance
 local invy_p = InventoryFactory.instance()
 	:as2D(10, 10)
 	
