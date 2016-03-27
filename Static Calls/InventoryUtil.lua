@@ -47,6 +47,9 @@ InventoryUtil.Fill2D = function(inventory, contents)
 			inventory.Contents[x][y] = CloneItem(contents)
 		end
 	end
+	inventory.LengthX = #inventory.Contents
+	inventory.LengthY = #inventory.Contents[1]
+	inventory.Size = inventory.LengthX * inventory.LengthY
 end
 
 InventoryUtil.Empty = function(inventory)
