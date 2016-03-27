@@ -14,7 +14,7 @@ ItemUtil.Clone = function(item)
 end
 
 ItemUtil.Invoke = function(item, ...)
-	item.Callable(item, ...)
+	return item.Callable(item, ...)
 end
 
 ItemUtil.Set = function(item, index, val)
@@ -26,15 +26,10 @@ ItemUtil.Get = function(item, index)
 	return item.Data[index]
 end
 
-ItemUtil.Remove = function(item, index, getvalue)
+ItemUtil.Remove = function(item, index)
 	local value = item.Data[index]
 	item.Data[index] = nil
-	return getvalue and item or value
-end
-
-ItemUtil.Reset = function(item)
-	item.Id = -1
-	item.Data = {}
+	return value
 end
 
 return ItemUtil

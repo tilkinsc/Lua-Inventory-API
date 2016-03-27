@@ -24,15 +24,19 @@ end
 local ItemFactory = {}
 
 ItemFactory.instance = function()
-	local this = {
-		call = false;
-		call_data = nil;
-		stack_data = false;
-		stack_data_amt = 0;
-		stack_data_max = 0;
-		data = false;
-		data_data = false;
-	}
+	local this = {}
+	
+	this.reset = function(self)
+		self.call = false;
+		self.call_data = nil;
+		self.stack_data = false;
+		self.stack_data_amt = 0;
+		self.stack_data_max = 0;
+		self.data = false;
+		self.data_data = false;
+	end
+	
+	this:reset()
 	
 	this.withCall = function(self, func)
 		self.call = true

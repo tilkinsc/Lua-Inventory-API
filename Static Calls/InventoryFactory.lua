@@ -50,11 +50,15 @@ end
 local InventoryFactory = {}
 
 InventoryFactory.instance = function()
-	local this = {
-		dimension = nil;
-		dimension_x = nil;
-		dimension_y = nil;
-	}
+	local this = {}
+	
+	this.reset = function(self)
+		self.dimension = nil;
+		self.dimension_x = nil;
+		self.dimension_y = nil;
+	end
+	
+	this:reset()
 	
 	this.as1D = function(self, dim_x)
 		self.dimension = 1
