@@ -1,7 +1,6 @@
 
---local Inventory = require("Inventory")
-
 local InventoryDebug = require("InventoryDebug")
+--local InventorySave = require("InventorySave")
 local InventoryFactory = require("InventoryFactory")
 local ItemFactory = require("ItemFactory")
 
@@ -39,3 +38,10 @@ InventoryDebug.DebugItems(invy)
 
 invy:Fill(contents)
 InventoryDebug.DebugItems(invy)
+
+-- InventorySave.Save(1131 .. "u3" .. "_Inventory", "Contents", invy)
+-- invy:Empty()
+-- InventoryDebug.DebugItems(invy)
+-- local inventory_data = InventorySave.Load(1131 .. "u3" .. "_Inventory", "Contents")
+-- invy:Fill(inventory_data)
+-- InventoryDebug.DebugItems(invy)
