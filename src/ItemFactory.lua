@@ -1,6 +1,4 @@
 
-local Item = {}
-
 local Item_clone = function(item)
 	local out = {}
 	for i, v in pairs(item)do
