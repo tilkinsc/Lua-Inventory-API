@@ -4,7 +4,6 @@ package.path = "../src/?.lua;" .. package.path
 -- Imports
 local InventoryDebug = require("InventoryDebug")
 local InventoryFactory = require("InventoryFactory")
---local InventorySave = require("InventorySave")
 local ItemFactory = require("ItemFactory")
 
 -- Creating a single stack item with metadata
@@ -23,7 +22,8 @@ InventoryDebug.DebugInstance(invy)
 invy:fill(item)
 InventoryDebug.DebugItems(invy)
 
--- Create a single stack item with metadata which can be invoked
+-- Create a single item stack with metadata which can be invoked
+-- Invoke it
 local newItem = ItemFactory.instance()
 	:withStack(1, 2)
 	:withMetadata()
@@ -31,8 +31,7 @@ local newItem = ItemFactory.instance()
 		print("Item", self.id)
 	end)
 	:finalize(3)
-	
--- Invoke that item
+
 newItem:invoke()
 
 -- Getting/Setting, using cart coords, an item from inventory
