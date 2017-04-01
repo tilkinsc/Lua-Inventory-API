@@ -50,10 +50,3 @@ InventoryDebug.DebugItems(invy)
 invy:fill(contents)
 InventoryDebug.DebugItems(invy)
 
--- Save inventory
--- InventorySave.Save(1131 .. "u3" .. "_Inventory", "Contents", invy)
--- Inventory.Empty(invy)
--- InventoryDebug.DebugItems(invy)
--- local inventory_data = InventorySave.Load(1131 .. "u3" .. "_Inventory", "Contents")
--- Inventory.Fill2D(invy, inventory_data)
--- InventoryDebug.DebugItems(invy)
