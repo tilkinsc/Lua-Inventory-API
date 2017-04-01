@@ -22,29 +22,6 @@ local Item_get = function(item, index)
 	return item.data[index]
 end
 
-local Item_remove = function(item, index)
-	local value = item.data[index]
-	item.data[index] = nil
-	return value
-end
-
-Item.new = function(id)
-	local this = {
-		id = id or -1;
-	}
-	
-	this.clone = Item_clone
-	
-	this.invoke = Item_invoke
-	this.remove = Item_remove
-	
-	this.set = Item_set
-	this.get = Item_get
-	
-	return this
-end
-
-
 
 
 local ItemFactory = {}
@@ -79,12 +56,21 @@ local ItemFactory_withMetadata = function(self, data)
 end
 
 local ItemFactory_finalize = function(self, id)
-	local item = Item.new(id)
-	item.callable = self.call_data
-	item.amount = self.stack_data and self.stack_data_amt or nil
-	item.max = self.stack_data and (self.stack_data_max or 0) or nil
-	item.data = self.data and self.data_data or nil
-	return item
+	local this = {
+		id = id or -1
+	}
+	this.clone = Item_clone
+	
+	this.invoke = Item_invoke
+	
+	this.set = Item_set
+	this.get = Item_get
+	
+	this.callable = self.call_data or nil
+	this.amount = self.stack_data and self.stack_data_amt or nil
+	this.max = self.stack_data and (self.stack_data_max or 0) or nil
+	this.data = self.data and self.data_data or nil
+	return this
 end
 
 ItemFactory.instance = function()
